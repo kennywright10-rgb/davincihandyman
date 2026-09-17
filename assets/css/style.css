@@ -131,6 +131,7 @@ nav.main-nav a:hover { color: var(--color-brand-blue); text-decoration: none; }
 }
 .hero .container { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2rem; align-items: center; }
 .hero h1 { color: #fff; }
+.hero-eyebrow { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8fc1e3; margin: 0 0 0.75rem; }
 .hero p.lede { font-size: 1.15rem; color: #dce7f0; max-width: 46ch; }
 .hero-ctas { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-top: 1.5rem; }
 .hero-photo-placeholder {
