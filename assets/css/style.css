@@ -1,16 +1,16 @@
 /* =========================================================
-   Davinci Home Improvements — Shared Design System
+   Davinci Home Improvements: Shared Design System
    NOTE: Colors below are PLACEHOLDER brand colors. Swap the
    CSS variables in :root once the real logo/brand colors are
-   provided — nothing else needs to change.
+   provided: nothing else needs to change.
    ========================================================= */
 
 :root {
   /* --- Real Davinci brand palette, extracted from the provided logo (black / sky-blue / white) --- */
   --color-primary: #0d0d0f;      /* near-black, matches logo background */
   --color-primary-dark: #000000; /* pure black for header/footer/CTA bands */
-  --color-brand-blue: #429dcc;   /* exact logo blue — decorative use on dark backgrounds (6.9:1 vs black) */
-  --color-accent: #256a8d;       /* darker button-safe blue — WCAG AA verified vs. white text: 5.96:1 */
+  --color-brand-blue: #429dcc;   /* exact logo blue; decorative use on dark backgrounds (6.9:1 vs black) */
+  --color-accent: #256a8d;       /* darker button-safe blue; WCAG AA verified vs. white text: 5.96:1 */
   --color-accent-dark: #1d5470;  /* hover state, darker still */
   --color-bg: #ffffff;
   --color-bg-alt: #f5f7f9;
@@ -67,7 +67,7 @@ p { margin: 0 0 1em; }
 
 /* --- Promo / utility bar (deals + phone) --- */
 .top-bar {
-  background: var(--color-accent); /* darker, button-safe blue — WCAG AA vs white text */
+  background: var(--color-accent); /* darker, button-safe blue; WCAG AA vs white text */
   color: #fff;
   font-size: 0.85rem;
   font-weight: 600;

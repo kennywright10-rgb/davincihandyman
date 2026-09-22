@@ -1,5 +1,5 @@
 // =========================================================
-// Davinci Home Improvements — shared site behavior
+// Davinci Home Improvements: shared site behavior
 // =========================================================
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var honeypot = form.querySelector('.hp-field input');
       if (honeypot && honeypot.value.trim() !== '') {
         e.preventDefault();
-        return; // silently drop — don't tell the bot it failed
+        return; // silently drop; don't tell the bot it failed
       }
 
       var fields = form.querySelectorAll('[data-required]');
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       // NOTE: This is client-side validation only, for user experience.
       // The form's real submission endpoint (Netlify Forms, Formspree, a
-      // server-side handler, etc.) MUST also validate/sanitize server-side —
+      // server-side handler, etc.) MUST also validate/sanitize server-side:
       // never trust client-side validation alone. The `action` attribute on
       // this form is a placeholder until a real backend/service is wired up.
     });
