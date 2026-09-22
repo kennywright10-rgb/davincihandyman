@@ -60,9 +60,10 @@ document.addEventListener('DOMContentLoaded', function () {
         var errorEl = document.getElementById(field.id + '-error');
         var value = field.value.trim();
         var fieldValid = true;
+        var isOptional = field.hasAttribute('data-optional');
 
         if (value === '') {
-          fieldValid = false;
+          fieldValid = isOptional ? true : false;
         } else if (field.type === 'email') {
           fieldValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
         } else if (field.dataset.required === 'phone') {
