@@ -90,7 +90,7 @@ header.site-header {
 }
 .nav-row { display: flex; align-items: center; justify-content: space-between; padding: 0.65rem 0; }
 .logo { display: flex; align-items: center; gap: 0.6rem; font-weight: 700; font-size: 1.1rem; color: #fff; }
-.logo img { height: 72px; width: auto; display: block; }
+.logo img { height: 101px; width: auto; display: block; }
 
 nav.main-nav ul { list-style: none; display: flex; gap: 1.75rem; margin: 0; padding: 0; align-items: center; }
 nav.main-nav a { color: #e7edf2; font-weight: 600; }
