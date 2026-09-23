@@ -92,7 +92,7 @@ header.site-header {
 .logo { display: flex; align-items: center; gap: 0.6rem; font-weight: 700; font-size: 1.1rem; color: #fff; }
 .logo img { height: 101px; width: auto; display: block; }
 
-nav.main-nav ul { list-style: none; display: flex; gap: 1.75rem; margin: 0; padding: 0; align-items: center; }
+nav.main-nav ul { list-style: none; display: flex; gap: 1.35rem; margin: 0; padding: 0; align-items: center; }
 nav.main-nav a { color: #e7edf2; font-weight: 600; }
 nav.main-nav a:hover { color: var(--color-brand-blue); text-decoration: none; }
 
@@ -114,7 +114,7 @@ nav.main-nav a:hover { color: var(--color-brand-blue); text-decoration: none; }
   color: #fff;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1040px) {
   nav.main-nav {
     display: none;
     width: 100%;
