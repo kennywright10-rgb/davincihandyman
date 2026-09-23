@@ -222,13 +222,54 @@ section { padding: 3.5rem 0; }
   box-shadow: var(--shadow);
 }
 .reviews-panel .stars { color: #946b0a; font-size: 1.4rem; letter-spacing: 0.1em; } /* WCAG AA verified vs. white: 4.8:1 */
-.reviews-embed-slot {
-  margin-top: 1.5rem;
-  border: 2px dashed var(--color-border);
+
+/* --- Featured review cards (3-up, homepage) --- */
+.review-card {
+  background: #fff;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  padding: 2rem 1rem;
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+.review-card .review-stars { color: #946b0a; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+.review-card .review-text { margin-bottom: 0.75rem; }
+.review-card .review-author { font-weight: 700; margin: 0; }
+.review-meta { font-weight: 400; color: var(--color-text-muted); font-size: 0.88rem; }
+
+/* --- Auto-scrolling review ticker --- */
+.review-scroller-wrap {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+.review-scroller-track {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  animation: review-scroll 42s linear infinite;
+}
+.review-scroller-wrap:hover .review-scroller-track { animation-play-state: paused; }
+.review-chip {
+  flex: 0 0 auto;
+  width: 300px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+}
+.review-chip .review-stars { color: #946b0a; letter-spacing: 0.1em; font-size: 0.9rem; margin-bottom: 0.4rem; }
+.review-chip p:not(.review-author) { font-size: 0.92rem; margin: 0 0 0.5rem; }
+.review-chip .review-author { font-weight: 700; font-size: 0.88rem; margin: 0; }
+
+@keyframes review-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review-scroller-track { animation: none; }
+  .review-scroller-wrap { overflow-x: auto; }
 }
 
 /* --- FAQ --- */
