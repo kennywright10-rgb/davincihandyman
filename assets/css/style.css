@@ -375,6 +375,14 @@ footer.site-footer a:hover { color: #fff; }
   font-weight: 600;
   font-size: 0.92rem;
 }
+/* Light-background variant, for use outside the dark .section-areas band
+   (e.g. the contact page info panel), where white-on-white text/border
+   would be invisible. */
+.area-pill-light {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
 section.section-areas { background: var(--color-primary-dark); color: #fff; }
 section.section-areas h2 { color: #fff; }
 section.section-areas p { color: #cbd8e2; }
