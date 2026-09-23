@@ -233,6 +233,8 @@ section { padding: 3.5rem 0; }
   display: flex;
   align-items: center;
   gap: 1rem;
+  max-width: 700px;
+  margin: 0 auto;
   min-width: 0;
 }
 .review-carousel-track {
@@ -249,8 +251,8 @@ section { padding: 3.5rem 0; }
 }
 .review-carousel-track::-webkit-scrollbar { display: none; }
 .review-carousel .review-card {
-  flex: 0 0 min(100%, 640px);
-  scroll-snap-align: center;
+  flex: 0 0 100%;
+  scroll-snap-align: start;
 }
 .review-arrow {
   flex: 0 0 auto;
