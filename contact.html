@@ -54,13 +54,13 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;">
         <div>
           <h2 style="margin-top:0;">Send Us Your Project</h2>
-          <form id="contact-form" action="#" method="POST" novalidate>
-            <!-- NOTE: action="#" is a placeholder. Swap it for the real Formspree
-                 endpoint once created: https://formspree.io/f/{form_id}
-                 (Settings > sign in to formspree.io > New Form > set the
-                 destination to davincihandyman1@gmail.com > copy the endpoint
-                 shown, it will look like https://formspree.io/f/abcdwxyz).
-                 It does not submit anywhere yet. -->
+          <form id="contact-form" action="https://formspree.io/f/xbglyalz" method="POST" novalidate>
+            <!-- Live Formspree endpoint, delivering to davincihandyman1@gmail.com.
+                 Submission is handled via fetch/AJAX in main.js (see the
+                 "Contact / quote form" section there) so the visitor sees an
+                 inline success/error message here instead of being redirected
+                 to formspree.io. This action="" URL is kept as a working
+                 fallback in case JavaScript is unavailable. -->
             <div class="form-grid">
               <div>
                 <label for="name">Full Name</label>

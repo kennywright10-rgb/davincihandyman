@@ -46,15 +46,21 @@ document.addEventListener('DOMContentLoaded', function () {
   var form = document.getElementById('contact-form');
   if (form) {
     form.addEventListener('submit', function (e) {
-      var valid = true;
+      // Always take over submission ourselves: on success we send it to
+      // Formspree via fetch and show a message right here on the page,
+      // instead of letting the browser do a normal POST and redirect the
+      // visitor away to formspree.io.
+      e.preventDefault();
+
+      var status = document.getElementById('form-status');
 
       // Honeypot spam check: if this hidden field has any value, it's a bot.
       var honeypot = form.querySelector('.hp-field input');
       if (honeypot && honeypot.value.trim() !== '') {
-        e.preventDefault();
         return; // silently drop; don't tell the bot it failed
       }
 
+      var valid = true;
       var fields = form.querySelectorAll('[data-required]');
       fields.forEach(function (field) {
         var errorEl = document.getElementById(field.id + '-error');
@@ -81,18 +87,60 @@ document.addEventListener('DOMContentLoaded', function () {
       });
 
       if (!valid) {
-        e.preventDefault();
-        var status = document.getElementById('form-status');
         if (status) {
           status.textContent = 'Please fix the highlighted fields and try again.';
           status.className = 'form-status error';
         }
+        return;
       }
-      // NOTE: This is client-side validation only, for user experience.
-      // The form's real submission endpoint (Netlify Forms, Formspree, a
-      // server-side handler, etc.) MUST also validate/sanitize server-side:
-      // never trust client-side validation alone. The `action` attribute on
-      // this form is a placeholder until a real backend/service is wired up.
+      // NOTE: This is client-side validation for user experience only.
+      // Formspree also validates/sanitizes on its end; never trust
+      // client-side validation alone.
+
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var originalBtnText = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+      }
+      if (status) {
+        status.textContent = '';
+        status.className = 'form-status';
+      }
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (response) {
+        if (response.ok) {
+          form.reset();
+          if (status) {
+            status.textContent = "Thanks! Your request has been sent. We'll be in touch soon.";
+            status.className = 'form-status success';
+          }
+        } else {
+          return response.json().then(function (data) {
+            var message = (data && data.errors && data.errors.length)
+              ? data.errors.map(function (err) { return err.message; }).join(', ')
+              : 'Something went wrong sending your request. Please call us at (678) 608-8843 instead.';
+            if (status) {
+              status.textContent = message;
+              status.className = 'form-status error';
+            }
+          });
+        }
+      }).catch(function () {
+        if (status) {
+          status.textContent = "Something went wrong sending your request. Please call us at (678) 608-8843 instead.";
+          status.className = 'form-status error';
+        }
+      }).finally(function () {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      });
     });
   }
 
