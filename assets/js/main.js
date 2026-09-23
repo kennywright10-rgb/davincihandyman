@@ -15,6 +15,31 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  /* ---------- Homepage review carousel ---------- */
+  var reviewTrack = document.querySelector('.review-carousel-track');
+  if (reviewTrack) {
+    var prevBtn = document.querySelector('.review-arrow-prev');
+    var nextBtn = document.querySelector('.review-arrow-next');
+    var scrollToCard = function (direction) {
+      var card = reviewTrack.querySelector('.review-card');
+      if (!card) return;
+      var trackStyles = window.getComputedStyle(reviewTrack);
+      var gap = parseFloat(trackStyles.columnGap || trackStyles.gap || '0') || 0;
+      var step = card.getBoundingClientRect().width + gap;
+      var atStart = reviewTrack.scrollLeft <= 4;
+      var atEnd = reviewTrack.scrollLeft + reviewTrack.clientWidth >= reviewTrack.scrollWidth - 4;
+      if (direction > 0 && atEnd) {
+        reviewTrack.scrollTo({ left: 0, behavior: 'smooth' });
+      } else if (direction < 0 && atStart) {
+        reviewTrack.scrollTo({ left: reviewTrack.scrollWidth, behavior: 'smooth' });
+      } else {
+        reviewTrack.scrollBy({ left: direction * step, behavior: 'smooth' });
+      }
+    };
+    if (prevBtn) prevBtn.addEventListener('click', function () { scrollToCard(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { scrollToCard(1); });
+  }
+
   /* ---------- Cookie consent banner ---------- */
   var COOKIE_KEY = 'davinci_cookie_consent'; // 'accepted' | 'declined'
   var banner = document.getElementById('cookie-banner');
