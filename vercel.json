@@ -6,6 +6,7 @@
     { "source": "/dryer-vent-cleaning", "destination": "/chimney-sweep/dryer-vent-cleaning.html", "statusCode": 301 },
     { "source": "/our-story", "destination": "/about.html", "statusCode": 301 },
     { "source": "/contact-us", "destination": "/contact.html", "statusCode": 301 },
+    { "source": "/contact", "destination": "/contact.html", "statusCode": 301 },
     { "source": "/cart", "destination": "/", "statusCode": 301 },
 
     { "source": "/handyman-cumming-ga", "destination": "/handyman/handyman-cumming-ga.html", "statusCode": 301 },
