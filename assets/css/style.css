@@ -233,6 +233,7 @@ section { padding: 3.5rem 0; }
   display: flex;
   align-items: center;
   gap: 1rem;
+  min-width: 0;
 }
 .review-carousel-track {
   display: flex;
@@ -243,6 +244,8 @@ section { padding: 3.5rem 0; }
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 .review-carousel-track::-webkit-scrollbar { display: none; }
 .review-carousel .review-card {
