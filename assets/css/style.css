@@ -236,22 +236,8 @@ section { padding: 3.5rem 0; }
 .review-card .review-author { font-weight: 700; margin: 0; }
 .review-meta { font-weight: 400; color: var(--color-text-muted); font-size: 0.88rem; }
 
-/* --- Auto-scrolling review ticker --- */
-.review-scroller-wrap {
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
-}
-.review-scroller-track {
-  display: flex;
-  gap: 1.25rem;
-  width: max-content;
-  animation: review-scroll 42s linear infinite;
-}
-.review-scroller-wrap:hover .review-scroller-track { animation-play-state: paused; }
+/* --- Additional review chips (static grid, homepage) --- */
 .review-chip {
-  flex: 0 0 auto;
-  width: 300px;
   background: #fff;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
@@ -261,16 +247,6 @@ section { padding: 3.5rem 0; }
 .review-chip .review-stars { color: #946b0a; letter-spacing: 0.1em; font-size: 0.9rem; margin-bottom: 0.4rem; }
 .review-chip p:not(.review-author) { font-size: 0.92rem; margin: 0 0 0.5rem; }
 .review-chip .review-author { font-weight: 700; font-size: 0.88rem; margin: 0; }
-
-@keyframes review-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .review-scroller-track { animation: none; }
-  .review-scroller-wrap { overflow-x: auto; }
-}
 
 /* --- FAQ --- */
 .faq-item { border-bottom: 1px solid var(--color-border); padding: 1rem 0; }
