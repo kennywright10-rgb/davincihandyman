@@ -228,13 +228,11 @@ section { padding: 3.5rem 0; }
 .review-card .review-author { font-weight: 700; margin: 0; }
 .review-meta { font-weight: 400; color: var(--color-text-muted); font-size: 0.88rem; }
 
-/* --- Review carousel (homepage): 3 featured cards, one at a time, arrow-navigated --- */
+/* --- Review carousel (homepage): 3 featured cards side by side, arrow-navigated --- */
 .review-carousel {
   display: flex;
   align-items: center;
   gap: 1rem;
-  max-width: 700px;
-  margin: 0 auto;
   min-width: 0;
 }
 .review-carousel-track {
@@ -251,8 +249,15 @@ section { padding: 3.5rem 0; }
 }
 .review-carousel-track::-webkit-scrollbar { display: none; }
 .review-carousel .review-card {
-  flex: 0 0 100%;
+  flex: 0 0 calc(33.333% - 1rem);
   scroll-snap-align: start;
+}
+.review-carousel.no-scroll .review-arrow { visibility: hidden; }
+@media (max-width: 980px) {
+  .review-carousel .review-card { flex: 0 0 calc(50% - 0.75rem); }
+}
+@media (max-width: 620px) {
+  .review-carousel .review-card { flex: 0 0 100%; }
 }
 .review-arrow {
   flex: 0 0 auto;

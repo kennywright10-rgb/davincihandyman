@@ -38,6 +38,19 @@ document.addEventListener('DOMContentLoaded', function () {
     };
     if (prevBtn) prevBtn.addEventListener('click', function () { scrollToCard(-1); });
     if (nextBtn) nextBtn.addEventListener('click', function () { scrollToCard(1); });
+
+    // Hide the arrows when all cards already fit on screen (nothing to scroll to),
+    // e.g. wide desktop views showing all 3 at once; show them again on narrower
+    // screens where the cards no longer all fit in one row.
+    var carousel = reviewTrack.closest('.review-carousel');
+    var updateArrowVisibility = function () {
+      if (!carousel) return;
+      var hasOverflow = reviewTrack.scrollWidth > reviewTrack.clientWidth + 2;
+      carousel.classList.toggle('no-scroll', !hasOverflow);
+    };
+    updateArrowVisibility();
+    window.addEventListener('resize', updateArrowVisibility);
+    window.addEventListener('load', updateArrowVisibility);
   }
 
   /* ---------- Cookie consent banner ---------- */
