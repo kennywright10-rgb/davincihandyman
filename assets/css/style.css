@@ -460,6 +460,12 @@ section.section-areas p { color: #cbd8e2; }
   line-height: 1;
   margin-bottom: 0.5rem;
 }
+.why-item h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.15rem; /* room for up to 2 lines, so paragraph text below starts at the same height in every column regardless of heading length */
+}
 
 /* --- Footer social icons --- */
 .social-icons { display: flex; gap: 0.6rem; margin-top: 1rem; }
