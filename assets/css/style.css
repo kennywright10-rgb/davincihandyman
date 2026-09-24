@@ -177,6 +177,9 @@ nav.main-nav a:hover { color: var(--color-brand-blue); text-decoration: none; }
 
 @media (max-width: 860px) {
   .hero .container { grid-template-columns: 1fr; }
+  .hero .container > div:first-child { text-align: center; }
+  .hero .container > div:first-child .hero-ctas { justify-content: center; }
+  .hero .container > div:first-child .lede { margin-left: auto; margin-right: auto; }
   .hero-split { grid-template-columns: 1fr; gap: 1.5rem; }
   .hero-split > div:first-child { text-align: center; }
   .hero-split > div:first-child .hero-ctas { justify-content: center; }
