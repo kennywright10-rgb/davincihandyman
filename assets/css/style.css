@@ -112,6 +112,10 @@ nav.main-nav a:hover { color: var(--color-brand-blue); text-decoration: none; }
   font-size: 1.6rem;
   cursor: pointer;
   color: #fff;
+  padding: 0.5rem 0.6rem;
+  min-width: 44px;
+  min-height: 44px;
+  line-height: 1;
 }
 
 @media (max-width: 1040px) {
@@ -124,8 +128,16 @@ nav.main-nav a:hover { color: var(--color-brand-blue); text-decoration: none; }
   nav.main-nav ul { flex-direction: column; gap: 0; border-top: 1px solid var(--color-border); }
   nav.main-nav li { border-bottom: 1px solid var(--color-border); }
   nav.main-nav a { display: block; padding: 0.9rem 0.25rem; }
+  nav.main-nav li:last-child { border-bottom: none; }
+  nav.main-nav a.nav-cta { margin: 0.6rem 0.25rem; padding: 0.75rem 1.2rem; border-radius: var(--radius); text-align: center; }
   .nav-row { flex-wrap: wrap; }
   .menu-toggle { display: block; }
+  .logo img { height: 76px; }
+}
+
+@media (max-width: 480px) {
+  .logo img { height: 58px; }
+  .top-bar { font-size: 0.78rem; }
 }
 
 /* --- Hero --- */
@@ -156,8 +168,20 @@ nav.main-nav a:hover { color: var(--color-brand-blue); text-decoration: none; }
 .hero-photo img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; }
 .page-photo { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
 .page-photo img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; }
+
+/* --- Service/city page hero split (text + photo), used sitewide --- */
+.hero-split { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem; align-items: center; }
+
+/* --- Generic 2-column split (e.g. contact page form + info) --- */
+.grid-2col-start { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+
 @media (max-width: 860px) {
   .hero .container { grid-template-columns: 1fr; }
+  .hero-split { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+
+@media (max-width: 760px) {
+  .grid-2col-start { grid-template-columns: 1fr; gap: 2rem; }
 }
 
 .btn {
@@ -179,6 +203,11 @@ section { padding: 3.5rem 0; }
 .section-alt { background: var(--color-bg-alt); }
 .section-head { text-align: center; max-width: 60ch; margin: 0 auto 2.25rem; }
 .section-head p { color: var(--color-text-muted); }
+@media (max-width: 600px) {
+  section { padding: 2.5rem 0; }
+  .hero { padding: 2.25rem 0; }
+  .section-head { margin-bottom: 1.75rem; }
+}
 
 /* --- Category / service cards --- */
 .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
@@ -213,6 +242,11 @@ section { padding: 3.5rem 0; }
 .stats-strip { display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: center; text-align: center; }
 .stats-strip .stat-num { font-size: 2.1rem; font-weight: 800; color: var(--color-primary); }
 .stats-strip .stat-label { color: var(--color-text-muted); font-size: 0.95rem; }
+@media (max-width: 600px) {
+  .stats-strip { gap: 1.5rem 2rem; }
+  .stats-strip > div { flex: 0 1 calc(50% - 1rem); }
+  .stats-strip .stat-num { font-size: 1.7rem; }
+}
 
 /* --- Reviews section heading (plain, matches other section heads) --- */
 .reviews-head .stars { color: #946b0a; font-size: 1.4rem; letter-spacing: 0.1em; margin-bottom: 0.5rem; } /* WCAG AA verified vs. white: 4.8:1 */
@@ -284,7 +318,7 @@ section { padding: 3.5rem 0; }
 
 /* --- FAQ --- */
 .faq-item { border-bottom: 1px solid var(--color-border); padding: 1rem 0; }
-.faq-item summary { font-weight: 700; cursor: pointer; padding: 0.25rem 0; }
+.faq-item summary { font-weight: 700; cursor: pointer; padding: 0.6rem 0; }
 .faq-item p { margin-top: 0.75rem; color: var(--color-text-muted); }
 
 /* --- Breadcrumbs --- */
@@ -386,7 +420,7 @@ footer.site-footer a:hover { color: #fff; }
 .mt-2 { margin-top: 2rem; }
 
 /* --- Gallery (CSS-only tab filter, no JS) --- */
-.gallery-wrap input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+.gallery-wrap input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; width: auto; }
 .gallery-tabs { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-bottom: 2rem; }
 .gallery-tabs label {
   display: inline-block; padding: 0.55rem 1.2rem; border-radius: 999px;
