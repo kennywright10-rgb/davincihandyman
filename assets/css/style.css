@@ -183,6 +183,7 @@ nav.main-nav a:hover { color: var(--color-brand-blue); text-decoration: none; }
   .hero-split { grid-template-columns: 1fr; gap: 1.5rem; }
   .hero-split > div:first-child { text-align: center; }
   .hero-split > div:first-child .hero-ctas { justify-content: center; }
+  .hero-split > div:first-child .stat-callout { margin-left: auto; margin-right: auto; text-align: left; }
 }
 
 @media (max-width: 760px) {
@@ -231,6 +232,27 @@ section { padding: 3.5rem 0; }
 .card-photo img { width: 100%; height: 170px; object-fit: cover; display: block; }
 .card-price { font-weight: 800; color: var(--color-accent); margin: 0 0 0.75rem; }
 
+/* --- Homepage: featured Chimney Cleaning / Dryer Vent Cleaning spotlight --- */
+.featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; }
+.featured-card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+.featured-photo { aspect-ratio: 16 / 10; overflow: hidden; }
+.featured-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.featured-body { padding: 1.75rem; display: flex; flex-direction: column; flex: 1; }
+.featured-body h3 { margin-bottom: 0; }
+.featured-body p:not(.price-badge) { color: var(--color-text-muted); }
+.featured-ctas { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: auto; padding-top: 0.5rem; }
+@media (max-width: 700px) {
+  .featured-grid { grid-template-columns: 1fr; }
+}
+
 /* --- Prominent "starting at" price badge, used in service page heroes --- */
 .price-badge {
   display: inline-block;
@@ -268,6 +290,20 @@ section { padding: 3.5rem 0; }
 .review-card .review-text { margin-bottom: 0.75rem; }
 .review-card .review-author { font-weight: 700; margin: 0; }
 .review-meta { font-weight: 400; color: var(--color-text-muted); font-size: 0.88rem; }
+
+/* --- Single spotlighted review, used on service pages (not the homepage carousel) --- */
+.testimonial-single { max-width: 620px; margin: 0 auto; }
+.testimonial-single .review-text { font-size: 1.05rem; }
+
+/* --- Sourced trust/safety stat, used in service page hero copy --- */
+.stat-callout {
+  background: var(--color-bg-alt);
+  border-left: 4px solid var(--color-accent);
+  padding: 0.85rem 1.1rem;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  max-width: 46ch;
+}
 
 /* --- Review carousel (homepage): 3 featured cards side by side, arrow-navigated --- */
 .review-carousel {
