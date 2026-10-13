@@ -265,6 +265,46 @@ section { padding: 3.5rem 0; }
   margin: 0.5rem 0 1rem;
 }
 
+/* --- Limited-time promo styling --- */
+:root { --color-promo: #c23b22; }
+.top-bar.promo-bar { background: var(--color-promo); }
+.top-bar.promo-bar .container { justify-content: center; gap: 1.5rem; flex-wrap: wrap; text-align: center; }
+.top-bar.promo-bar span { font-weight: 700; }
+.top-bar.promo-bar a { background: #fff; color: var(--color-promo); font-weight: 800; padding: 0.3rem 0.9rem; border-radius: 999px; }
+
+.featured-card.is-promo { position: relative; border: 2px solid var(--color-promo); }
+.promo-ribbon {
+  position: absolute;
+  top: 0.9rem;
+  left: -0.5rem;
+  background: var(--color-promo);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  padding: 0.4rem 1rem 0.4rem 1.2rem;
+  border-radius: 0 999px 999px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  z-index: 2;
+}
+.price-badge.is-promo { background: var(--color-promo); display: flex; align-items: baseline; gap: 0.6rem; }
+.price-badge.is-promo .was-price { font-weight: 600; font-size: 0.85rem; text-decoration: line-through; opacity: 0.8; }
+.promo-fine-print { font-size: 0.8rem; color: var(--color-text-muted); margin-top: -0.5rem; }
+.btn-promo-lg {
+  display: block;
+  text-align: center;
+  background: var(--color-promo);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.15rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  margin: 0.25rem 0 1rem;
+  box-shadow: 0 4px 14px rgba(194,59,34,0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn-promo-lg:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(194,59,34,0.45); }
+
 /* --- Trust / stats strip --- */
 .stats-strip { display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: center; text-align: center; }
 .stats-strip .stat-num { font-size: 2.1rem; font-weight: 800; color: var(--color-primary); }
